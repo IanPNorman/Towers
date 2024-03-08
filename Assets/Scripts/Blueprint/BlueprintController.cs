@@ -14,4 +14,5 @@ public class BlueprintController : MonoBehaviour
             Object.Destroy(Blueprint);
         }
     }
+
 }
