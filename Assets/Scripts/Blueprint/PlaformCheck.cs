@@ -2,17 +2,17 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class LegCheck : MonoBehaviour
+public class PlaformBlueprint : MonoBehaviour
 {
 
-    [SerializeField] private Rigidbody WoodenLeg;
+    [SerializeField] private Rigidbody Platform;
 
     private void OnCollisionEnter(Collision collision)
     {
-        if (collision.gameObject.tag == "BlueprintLeg")
+        if (collision.gameObject.tag == "BlueprintPlatform")
         {
-            
-            WoodenLeg.constraints = RigidbodyConstraints.FreezeAll;
+
+            Platform.constraints = RigidbodyConstraints.FreezeAll;
             this.transform.position = collision.transform.position;
             this.transform.rotation = collision.transform.rotation;
 
