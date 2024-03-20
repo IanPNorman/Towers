@@ -4,12 +4,12 @@ using UnityEngine;
 
 public class Enemy : MonoBehaviour
 {
-    private float speed = 10;
-    private int health;
-    private int money;
-    private int damage;
-    private Transform target;
-    private int wavepointIndex = 0;
+    protected float speed;
+    protected int health;
+    protected int money;
+    protected int damage;
+    protected Transform target;
+    protected int wavepointIndex = 0;
 
     // not sure what the game plan is here
     // private GameObject materials;
@@ -35,13 +35,7 @@ public class Enemy : MonoBehaviour
 
     void Update()
     {
-        Vector3 direction = target.position - transform.position;
-        transform.Translate(direction.normalized * (speed * Time.deltaTime));
-
-        if (Vector3.Distance(transform.position, target.position) <= 0.2f)
-        {
-            GetNextWaypoint();
-        }
+        MoveTowardsGoal();
     }
 
     public void GetNextWaypoint()
@@ -84,5 +78,16 @@ public class Enemy : MonoBehaviour
     public void ModifySpeed(float modifier, float duration)
     {
         // i have no idea how to do this, probably a stretch goal
+    }
+
+    public void MoveTowardsGoal()
+    {
+        Vector3 direction = target.position - transform.position;
+        transform.Translate(direction.normalized * (speed * Time.deltaTime));
+
+        if (Vector3.Distance(transform.position, target.position) <= 0.2f)
+        {
+            GetNextWaypoint();
+        }
     }
 }
