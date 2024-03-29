@@ -9,7 +9,8 @@ public class Enemy : MonoBehaviour
     protected int money;
     protected int damage;
     protected Transform target;
-    protected int wavepointIndex = 0;
+    // bad
+    protected int waypointIndex = -1;
 
     // not sure what the game plan is here
     // private GameObject materials;
@@ -40,16 +41,17 @@ public class Enemy : MonoBehaviour
 
     public void GetNextWaypoint()
     {
-        if (wavepointIndex > Waypoint.points.Length)
+        if (waypointIndex >= Waypoint.points.Length - 1)
         {
             // call lose lives
             Destroy(gameObject);
             return;
         }
-        wavepointIndex++;
-        target = Waypoint.points[wavepointIndex];
+        waypointIndex++;
+        target = Waypoint.points[waypointIndex];
     }
 
+    // will finish with an observer function once fully integrated
     public void TakeDamage(int damage)
     {
         this.health -= damage;
@@ -67,6 +69,8 @@ public class Enemy : MonoBehaviour
     public void Die()
     {
         DropObjects();
+        // this feels very scuffed
+        WaveManager.numOfEnemiesAlive--;
         Destroy(gameObject);
     }
 

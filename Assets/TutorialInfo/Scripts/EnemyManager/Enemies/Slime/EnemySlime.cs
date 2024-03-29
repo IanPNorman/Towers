@@ -19,9 +19,5 @@ public class EnemySlime : Enemy
     private void Update()
     {
         MoveTowardsGoal();
-        if (health < 0)
-        {
-            Die();
-        }
     }
 }
