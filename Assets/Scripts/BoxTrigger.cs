@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -7,46 +8,65 @@ public class BoxTrigger : MonoBehaviour
     public GameObject parentObject;
     public Collider boxCollider;
     public LayerMask targetLayers; // Layers of objects that trigger the event
+    public List<GameObject> boxResources = new List<GameObject>();
+    const int BoxLimit = 4;  // constant to determine how many objects the box can hold 
 
-    // todo: find way to change layers a game object can interact with. 
     void OnTriggerEnter(Collider other)
     {
-        if (((1 << other.gameObject.layer) & targetLayers) != 0)
+        Debug.Log(other.name + " entered the box trigger.");
+        if (boxResources.Count < BoxLimit)
         {
-            Rigidbody rb = other.GetComponent<Rigidbody>();
-            if (rb != null)
+            if (((1 << other.gameObject.layer) & targetLayers) != 0)
             {
-                Debug.Log(other.name + " entered the box trigger.");
+                Rigidbody rb = other.GetComponent<Rigidbody>();
+                if (rb != null)
+                {  
+                    boxResources.Add(other.gameObject);
+                    Debug.Log("Current Item Count: " + boxResources.Count);
 
-                // Set collided object as child of the parent object 
-                other.gameObject.transform.SetParent(parentObject.transform);
+                    // Set collided object as child of the parent object 
+                    other.gameObject.transform.SetParent(parentObject.transform);
 
-                // Change layer of game object to "Hands", where it can only interact with xr hands.
-                other.gameObject.layer = LayerMask.NameToLayer("Hands");
-                other.excludeLayers = LayerMask.NameToLayer("Default"); // NOT WORKING atm, resorted to ignoring collisions
+                    // Get reference to resourceScript component. 
+                    ResourceInBox resourceScript = other.gameObject.GetComponent<ResourceInBox>();
 
-                // Move the game object to the position of its parent. 
-                other.transform.position = parentObject.transform.position;
+                    if (resourceScript != null)
+                    {
+                        resourceScript.enabled = true;
+                    }
+                    else
+                    {
+                        // Add script as a component of the new child object
+                        other.gameObject.AddComponent<ResourceInBox>();
 
-                // Add the resourceInBox script as a component of the new child object
-                other.gameObject.AddComponent<ResourceInBox>();
-
-                // Get reference to newly attached script 
-                ResourceInBox resourceScript = other.gameObject.GetComponent<ResourceInBox>();
-
-                // Set triggerObject in new script to reference the current or "this" trigger
-                resourceScript.triggerObject = gameObject; 
-
-                // Make this trigger inactive 
-                gameObject.SetActive(false);
+                        // Set some properties in the attached script
+                        resourceScript.triggerObject = gameObject;
+                        resourceScript.objectNumber = boxResources.Count;
+                    }
+                }
             }
+        }
+        else
+        {
+            Debug.Log("Box is full!");
         }
     }
 
-    void OnTriggerExit(Collider other)
+    public void removeResource(int objNumber)
     {
-        Debug.Log("Trigger exited by: " + other.name);
+        if (boxResources.Count > 0)
+        {
+            // Get the most recently spawned object (last one in the list)
+            GameObject objToRemove = boxResources[objNumber];
+            boxResources.Remove(objToRemove); // Remove the object from the list
+            objToRemove.transform.SetParent(null); // Detach child object 
+        }
+        else
+        {
+            Debug.LogWarning("Error. There is no object to remove.");
+        }
     }
+
     private void OnDrawGizmos()
     { 
         Collider collider = GetComponent<Collider>();
@@ -62,3 +82,7 @@ public class BoxTrigger : MonoBehaviour
         }
     }
 }
+
+// Change layer of game object to "Hands", where it can only interact with xr hands.
+// other.gameObject.layer = LayerMask.NameToLayer("Hands");
+// other.excludeLayers = LayerMask.NameToLayer("Default"); 
