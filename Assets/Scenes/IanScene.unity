@@ -2475,6 +2475,12 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: bc6b8cb91437952489244f63410b14c8, type: 3}
+--- !u!1 &1501126381 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 3454647474146646045, guid: 9d34522f65f3e5e479d7a52c955a11f5,
+    type: 3}
+  m_PrefabInstance: {fileID: 3606154806473404505}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1504814445 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 142814027569671789, guid: f8bb678251c70ee4ab88591c059e3256,
@@ -2513,6 +2519,20 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 3606154806473404505}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &1535242186
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1501126381}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 09bffb8f33935ec4187fe966afa0d8a8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  blueprintController: {fileID: 194224069}
+  NewMaterial: {fileID: 2100000, guid: 4bc30c7369e0fbf4f8f59822835900e4, type: 2}
 --- !u!1 &1753111442
 GameObject:
   m_ObjectHideFlags: 0
@@ -2525,11 +2545,10 @@ GameObject:
   - component: {fileID: 1753111447}
   - component: {fileID: 1753111446}
   - component: {fileID: 1753111445}
-  - component: {fileID: 1753111444}
   - component: {fileID: 1753111443}
   m_Layer: 0
   m_Name: Platform
-  m_TagString: Untagged
+  m_TagString: WoodenPlatform
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -2561,19 +2580,6 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
---- !u!114 &1753111444
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1753111442}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 09bffb8f33935ec4187fe966afa0d8a8, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  Platform: {fileID: 1753111443}
 --- !u!65 &1753111445
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -3162,7 +3168,11 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 3454647474146646045, guid: 9d34522f65f3e5e479d7a52c955a11f5,
+        type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1535242186}
   m_SourcePrefab: {fileID: 100100000, guid: 9d34522f65f3e5e479d7a52c955a11f5, type: 3}
 --- !u!1660057539 &9223372036854775807
 SceneRoots:

@@ -5,18 +5,17 @@ using UnityEngine;
 public class PlaformBlueprint : MonoBehaviour
 {
 
-    [SerializeField] private Rigidbody Platform;
+    public BlueprintController blueprintController;
+    public Material NewMaterial;
 
-    private void OnCollisionEnter(Collision collision)
+
+    void OnTriggerEnter(Collider collision)
     {
-        if (collision.gameObject.tag == "BlueprintPlatform")
+        if (collision.CompareTag("WoodenPlatform"))
         {
-
-            Platform.constraints = RigidbodyConstraints.FreezeAll;
-            this.transform.position = collision.transform.position;
-            this.transform.rotation = collision.transform.rotation;
-
+            GetComponent<Renderer>().material = NewMaterial;
             Object.Destroy(collision.gameObject);
+            blueprintController.IncreaseCounter(1);
         }
     }
 }
