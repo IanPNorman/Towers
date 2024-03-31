@@ -5,8 +5,8 @@ using UnityEngine;
 
 public class ArcherIdle : ArcherState
 {
-    public bool canSeeEnemy;
-    public ArcherState ArcherAttack;
+    [SerializeField] private bool canSeeEnemy;
+    [SerializeField] private ArcherState ArcherAttack;
 
     public override ArcherState RunCurrentState()
     {
@@ -21,9 +21,9 @@ public class ArcherIdle : ArcherState
         }
     }
 
-    private void OnTriggerEnter2D(Collider2D collision)
+    void OnTriggerEnter(Collider collision)
     {
-        if (collision.gameObject.tag == "Enemy")
+        if (collision.CompareTag("enemy"))
         {
             canSeeEnemy = true;
         }

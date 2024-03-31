@@ -5,18 +5,15 @@ using UnityEngine;
 
 public class SupportBeamCheck : MonoBehaviour
 {
+    public BlueprintController blueprintController;
+    public Material NewMaterial;
 
-    [SerializeField] private Rigidbody SupportBeam;
-
-    private void OnCollisionEnter(Collision collision)
+    void OnTriggerEnter(Collider collision)
     {
-        if (collision.gameObject.tag == "BlueprintSupportBeam")
+        if (collision.CompareTag("WoodenBeam"))
         {
-
-            SupportBeam.constraints = RigidbodyConstraints.FreezeAll;
-            this.transform.position = collision.transform.position;
-            this.transform.rotation = collision.transform.rotation;
-
+            GetComponent<Renderer>().material = NewMaterial;
+            blueprintController.IncreaseCounter(1);
             Object.Destroy(collision.gameObject);
         }
     }

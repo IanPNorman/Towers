@@ -7,6 +7,9 @@ TagManager:
   - BlueprintLeg
   - BlueprintSupportBeam
   - BlueprintPlatform
+  - enemy
+  - WoodenLeg
+  - WoodenBeam
   layers:
   - Default
   - TransparentFX

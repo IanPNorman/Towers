@@ -4,19 +4,17 @@ using UnityEngine;
 
 public class LegCheck : MonoBehaviour
 {
+    public BlueprintController blueprintController;
+    public Material NewMaterial;
 
-    [SerializeField] private Rigidbody WoodenLeg;
 
-    private void OnCollisionEnter(Collision collision)
+    void OnTriggerEnter(Collider collision)
     {
-        if (collision.gameObject.tag == "BlueprintLeg")
+        if (collision.CompareTag("WoodenLeg"))
         {
-            
-            WoodenLeg.constraints = RigidbodyConstraints.FreezeAll;
-            this.transform.position = collision.transform.position;
-            this.transform.rotation = collision.transform.rotation;
-
+            GetComponent<Renderer>().material = NewMaterial;
             Object.Destroy(collision.gameObject);
+            blueprintController.IncreaseCounter(1);
         }
     }
 }
