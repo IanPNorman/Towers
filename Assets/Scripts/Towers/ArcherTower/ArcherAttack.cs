@@ -4,8 +4,13 @@ using UnityEngine;
 
 public class ArcherAttack : ArcherState
 {
-    public bool cantSeeEnemy;
-    public ArcherState ArcherIdle;
+    [SerializeField] private bool cantSeeEnemy;
+    [SerializeField] private ArcherState ArcherIdle;
+    [SerializeField] private List<TestEnemy> targets = new List<TestEnemy>();
+    [SerializeField] private GameObject currentTarget;
+    [SerializeField] private GameObject Enemy;
+
+
 
     public override ArcherState RunCurrentState()
     {
@@ -16,16 +21,45 @@ public class ArcherAttack : ArcherState
         }
         else
         {
+            GetGurrentTarget();     
             return this;
         }
     }
 
-    private void OnTriggerExit2D(Collider2D collision)
+
+    void OnTriggerEnter(Collider collision)
     {
-        if (collision.gameObject.tag == "Enemy")
+        if (collision.CompareTag("enemy"))
         {
-            cantSeeEnemy = true;
+            TestEnemy newEnemy = collision.GetComponent<TestEnemy>();
+            targets.Add(newEnemy);
         }
+    }
+
+
+    void OnTriggerExit(Collider collision)
+    {
+        
+        if (collision.CompareTag("enemy"))
+        {
+            TestEnemy enemy = collision.GetComponent<TestEnemy>();
+            if (targets.Contains(enemy))
+            {
+                targets.Remove(enemy);  
+            }
+        }
+    }
+
+    void GetGurrentTarget()
+    {
+        if (targets.Count <= 0)
+        {
+            currentTarget = null;
+            cantSeeEnemy = true;
+            return;
+
+        }
+        currentTarget = targets[0].gameObject;
     }
 }
 
