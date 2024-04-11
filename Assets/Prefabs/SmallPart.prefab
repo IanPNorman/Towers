@@ -46,7 +46,7 @@ GameObject:
   - component: {fileID: 6804094635899451351}
   - component: {fileID: 5887280793157869612}
   m_Layer: 0
-  m_Name: SampleLeg
+  m_Name: SmallPart
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
