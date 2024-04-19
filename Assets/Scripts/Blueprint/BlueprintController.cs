@@ -20,7 +20,6 @@ public class BlueprintController : MonoBehaviour
     public void IncreaseCounter(int increase)
     {
         Counter.Add(increase);
-        Debug.Log("Added one to have a total of " + Counter.Count);
     }
 
 }
