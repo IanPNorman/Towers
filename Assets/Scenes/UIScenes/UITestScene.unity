@@ -281,13 +281,25 @@ MonoBehaviour:
   m_FillRect: {fileID: 998375287}
   m_HandleRect: {fileID: 937752632}
   m_Direction: 0
-  m_MinValue: 0
-  m_MaxValue: 1
+  m_MinValue: -80
+  m_MaxValue: 0
   m_WholeNumbers: 0
   m_Value: 0
   m_OnValueChanged:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 877015643}
+        m_TargetAssemblyTypeName: OptionsMenu, Assembly-CSharp
+        m_MethodName: SetMasterVolume
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!1 &72384739
 GameObject:
   m_ObjectHideFlags: 0
@@ -1665,6 +1677,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 877015642}
+  - component: {fileID: 877015643}
   m_Layer: 5
   m_Name: OptionsMenu
   m_TagString: Untagged
@@ -1696,6 +1709,19 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 150.00002}
   m_SizeDelta: {x: 1250, y: 1095}
   m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &877015643
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 877015641}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 09eb471c63ff5034d9d996106f218449, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  audioMixer: {fileID: 24100000, guid: 6421aea555cec5a47aca81380675dc52, type: 2}
 --- !u!1 &937752631
 GameObject:
   m_ObjectHideFlags: 0
@@ -2385,8 +2411,8 @@ MonoBehaviour:
   m_FillRect: {fileID: 1277471280}
   m_HandleRect: {fileID: 1625023020}
   m_Direction: 0
-  m_MinValue: 0
-  m_MaxValue: 1
+  m_MinValue: -80
+  m_MaxValue: 0
   m_WholeNumbers: 0
   m_Value: 0
   m_OnValueChanged:
@@ -2684,8 +2710,8 @@ MonoBehaviour:
   m_FillRect: {fileID: 1603283478}
   m_HandleRect: {fileID: 232205113}
   m_Direction: 0
-  m_MinValue: 0
-  m_MaxValue: 1
+  m_MinValue: -80
+  m_MaxValue: 0
   m_WholeNumbers: 0
   m_Value: 0
   m_OnValueChanged:
