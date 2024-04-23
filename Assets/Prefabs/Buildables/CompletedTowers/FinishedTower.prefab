@@ -15,7 +15,7 @@ GameObject:
   - component: {fileID: 9193453231252567536}
   m_Layer: 0
   m_Name: BlueprintLeg (2)
-  m_TagString: BlueprintLeg
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -135,7 +135,7 @@ GameObject:
   - component: {fileID: 4844876722519088034}
   m_Layer: 0
   m_Name: BlueprintSupportBeam
-  m_TagString: BlueprintSupportBeam
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -404,6 +404,7 @@ MonoBehaviour:
   ArrowShooter: {fileID: 7734431074561017784}
   Arrow: {fileID: 4658548395856767113, guid: 52f4dac26d4bbf845bb8d61c47e1e36a, type: 3}
   rotation: {x: 0, y: 0, z: 0, w: 0}
+  startedshooting: 0
 --- !u!65 &3058170708875322313
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -440,7 +441,7 @@ GameObject:
   - component: {fileID: 6855610842012071109}
   m_Layer: 0
   m_Name: Platform
-  m_TagString: BlueprintPlatform
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -560,7 +561,7 @@ GameObject:
   - component: {fileID: 3100981952024476581}
   m_Layer: 0
   m_Name: BlueprintSupportBeam (2)
-  m_TagString: BlueprintSupportBeam
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -680,7 +681,7 @@ GameObject:
   - component: {fileID: 7644894729736200683}
   m_Layer: 0
   m_Name: BlueprintLeg (1)
-  m_TagString: BlueprintLeg
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -800,7 +801,7 @@ GameObject:
   - component: {fileID: 8608137408275767103}
   m_Layer: 0
   m_Name: BlueprintLeg
-  m_TagString: BlueprintLeg
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -920,7 +921,7 @@ GameObject:
   - component: {fileID: 7755765314896377450}
   m_Layer: 0
   m_Name: BlueprintSupportBeam (3)
-  m_TagString: BlueprintSupportBeam
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1145,7 +1146,7 @@ GameObject:
   - component: {fileID: 8246181087280644180}
   m_Layer: 0
   m_Name: BlueprintSupportBeam (1)
-  m_TagString: BlueprintSupportBeam
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1316,7 +1317,7 @@ BoxCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Size: {x: 5, y: 2, z: 5}
+  m_Size: {x: 10, y: 2, z: 10}
   m_Center: {x: 0, y: 0, z: 0}
 --- !u!1 &9177261183846036691
 GameObject:
@@ -1333,7 +1334,7 @@ GameObject:
   - component: {fileID: 6292811732315364912}
   m_Layer: 0
   m_Name: BlueprintLeg (3)
-  m_TagString: BlueprintLeg
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0

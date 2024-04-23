@@ -4,13 +4,11 @@
 TagManager:
   serializedVersion: 2
   tags:
-  - BlueprintLeg
-  - BlueprintSupportBeam
-  - BlueprintPlatform
   - enemy
   - WoodenLeg
   - WoodenBeam
   - WoodenPlatform
+  - coin
   layers:
   - Default
   - TransparentFX

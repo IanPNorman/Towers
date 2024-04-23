@@ -17,10 +17,15 @@ public class ArcherAttack : ArcherState
     [SerializeField] private GameObject Arrow;
     [SerializeField] private Quaternion rotation;
 
+    [SerializeField] private bool startedshooting = false;
+
     Projectile shoot;
+
+    private IEnumerator coroutine;
 
     void Awake()
     {
+        coroutine = Shooting();
         GameObject proj = new GameObject();
         shoot = proj.AddComponent<Projectile>();
     }
@@ -37,8 +42,14 @@ public class ArcherAttack : ArcherState
             GetGurrentTarget();
             if (currentTarget != null)
             {
-                // Check On couroutines to delay this from happening to fast
-                Projectile.Spawn(Arrow, ArrowShooter.transform.position, rotation, currentTarget.transform);
+                if (startedshooting == false) {
+                    StartCoroutine(coroutine);
+                    startedshooting = true;
+                }
+            }
+            else
+            {
+                StopCoroutine(coroutine);
             }
 
   
@@ -58,8 +69,7 @@ public class ArcherAttack : ArcherState
 
 
     void OnTriggerExit(Collider collision)
-    {
-        
+    {   
         if (collision.CompareTag("enemy"))
         {
             TestEnemy enemy = collision.GetComponent<TestEnemy>();
@@ -82,6 +92,17 @@ public class ArcherAttack : ArcherState
         currentTarget = targets[0].gameObject;
     }
 
-    
+    private IEnumerator Shooting()
+    {
+        while (true)
+        {
+            Projectile.Spawn(Arrow, ArrowShooter.transform.position, rotation, currentTarget.transform);
+            yield return new WaitForSeconds(4f);
+        }
+
+    }
+
+
+
 }
 
