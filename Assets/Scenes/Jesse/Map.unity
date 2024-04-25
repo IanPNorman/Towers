@@ -253,6 +253,7 @@ GameObject:
   - component: {fileID: 229444253}
   - component: {fileID: 229444252}
   - component: {fileID: 229444251}
+  - component: {fileID: 229444255}
   m_Layer: 0
   m_Name: EnemySpawn
   m_TagString: Untagged
@@ -346,6 +347,44 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &229444255
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 229444250}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 28ad10c11edcc4e43abdf95b076665c0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  numOfEnemiesAlive: 1
+  spawnPoint: {fileID: 229444254}
+  timeBetweenNextWave: 10
+  countdown: 5
+  waves:
+  - enemies:
+    - {fileID: 1632090760210327513, guid: a1ace5f0ecb299148b1f42c6117a4d39, type: 3}
+    - {fileID: 1632090760210327513, guid: a1ace5f0ecb299148b1f42c6117a4d39, type: 3}
+    - {fileID: 1632090760210327513, guid: a1ace5f0ecb299148b1f42c6117a4d39, type: 3}
+    spawnRate: 1
+  - enemies:
+    - {fileID: 1632090760210327513, guid: a1ace5f0ecb299148b1f42c6117a4d39, type: 3}
+    - {fileID: 1632090760210327513, guid: a1ace5f0ecb299148b1f42c6117a4d39, type: 3}
+    - {fileID: 1632090760210327513, guid: a1ace5f0ecb299148b1f42c6117a4d39, type: 3}
+    - {fileID: 1632090760210327513, guid: a1ace5f0ecb299148b1f42c6117a4d39, type: 3}
+    - {fileID: 1632090760210327513, guid: a1ace5f0ecb299148b1f42c6117a4d39, type: 3}
+    spawnRate: 1
+  - enemies:
+    - {fileID: 1632090760210327513, guid: a1ace5f0ecb299148b1f42c6117a4d39, type: 3}
+    - {fileID: 1632090760210327513, guid: a1ace5f0ecb299148b1f42c6117a4d39, type: 3}
+    - {fileID: 1632090760210327513, guid: a1ace5f0ecb299148b1f42c6117a4d39, type: 3}
+    - {fileID: 1632090760210327513, guid: a1ace5f0ecb299148b1f42c6117a4d39, type: 3}
+    - {fileID: 1632090760210327513, guid: a1ace5f0ecb299148b1f42c6117a4d39, type: 3}
+    - {fileID: 1632090760210327513, guid: a1ace5f0ecb299148b1f42c6117a4d39, type: 3}
+    - {fileID: 1632090760210327513, guid: a1ace5f0ecb299148b1f42c6117a4d39, type: 3}
+    spawnRate: 1
 --- !u!1001 &621909287
 PrefabInstance:
   m_ObjectHideFlags: 0

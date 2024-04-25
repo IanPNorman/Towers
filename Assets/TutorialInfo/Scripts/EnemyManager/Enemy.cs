@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 
 public class Enemy : MonoBehaviour
@@ -12,26 +13,31 @@ public class Enemy : MonoBehaviour
     // bad
     protected int waypointIndex = -1;
 
+    //private WaveManager waveManager;
+
+ 
+
     // not sure what the game plan is here
     // private GameObject materials;
-    public Enemy()
-    {
+    //public Enemy()
+    //{
 
-    }
+    //}
 
-    public Enemy(float speed, int health, int money, int damage/*, GameObject materials*/)
-    {
-        this.speed = speed;
-        this.health = health;
-        this.damage = damage;
-        this.money = money;
-        //this.materials = materials;
-    }
+    //public Enemy(float speed, int health, int money, int damage/*, GameObject materials*/)
+    //{
+    //    this.speed = speed;
+    //    this.health = health;
+    //    this.damage = damage;
+    //    this.money = money;
+    //    //this.materials = materials;
+    //}
 
     // Start is called before the first frame update
     void Start()
     {
         target = Waypoint.points[0];
+        //waveManager = GetComponentInParent<WaveManager>();
     }
 
     void Update()
@@ -45,6 +51,8 @@ public class Enemy : MonoBehaviour
         {
             // call lose lives
             Destroy(gameObject);
+
+            //waveManager.numOfEnemiesAlive--;
             return;
         }
         waypointIndex++;
@@ -66,11 +74,15 @@ public class Enemy : MonoBehaviour
         // pretty sure u have to check if the conditions for dealing damage is valid every tick or something like that
     }
 
+    public void reachEnd()
+    {
+        // function for damaging base hp when reaching the end
+    }
+
     public void Die()
     {
         DropObjects();
-        // this feels very scuffed
-        WaveManager.numOfEnemiesAlive--;
+        //waveManager.numOfEnemiesAlive--;
         Destroy(gameObject);
     }
 

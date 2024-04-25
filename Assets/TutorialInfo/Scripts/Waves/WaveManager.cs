@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class WaveManager : MonoBehaviour
 {
-    public static int numOfEnemiesAlive;
+    public int numOfEnemiesAlive = 1;
 
     public Transform spawnPoint;
 
@@ -20,55 +20,61 @@ public class WaveManager : MonoBehaviour
 
     protected bool readyToCountdown = false;
 
+
     //    private Transform[] waveOneEnemyList = [new EnemySlime, new EnemySlime, EnemySlime];
 
 
 
 
-    //// Start is called before the first frame update
-    //void Start()
-    //{
-    //    if (countdown < 0f)
-    //    {
-    //        countdown = timeBetweenNextWave;
-    //        SpawnWave();
-    //    }
-
-    //    countdown -= Time.deltaTime;
-    //}
+    // Start is called before the first frame update
+    void Start()
+    {
+        readyToCountdown = true;
+    }
 
     // Update is called once per frame
     void Update()
     {
-
-        if (waveIndex > waves.Length)
+        if (waveIndex >= waves.Length)
         {
-            Debug.Log("no more waves");
+            Debug.Log(waveIndex + "this is waveIndex" + waves.Length + "this is waves.Length");
             return;
         }
-        //if (numOfEnemiesAlive > 0)
-        //{
-        //    return;
-        //}
 
         if (countdown <= 0f)
         {
-             waveIndex++;
+            //readyToCountdown = false;
              StartCoroutine(SpawnWave());
              countdown = timeBetweenNextWave;
         }
-        countdown -= Time.deltaTime;
+        //if (numOfEnemiesAlive == 0)
+        //{
+        //    readyToCountdown=true;
+        //    waveIndex++;
+        //}
+        if (readyToCountdown == true)
+        {
+            countdown -= Time.deltaTime;
+        }
     }
         
 
     private IEnumerator SpawnWave()
     {
-        Debug.Log("A wave has spawned");
-        numOfEnemiesAlive = waves[waveIndex].enemies.Length;
-        for (int i = 0; i < waves[waveIndex].enemies.Length; i++)
+        if (waveIndex < waves.Length)
         {
-            SpawnEnemy(waves[waveIndex].enemies[i]);
-            yield return new WaitForSeconds(waves[waveIndex].spawnRate);
+            Debug.Log("A wave has spawned");
+            numOfEnemiesAlive = waves[waveIndex].enemies.Length;
+            Debug.Log(waves[waveIndex].enemies.Length);
+            for (int i = 0; i < waves[waveIndex].enemies.Length; i++)
+            {
+                Debug.Log("i ran!");
+                SpawnEnemy(waves[waveIndex].enemies[i]);
+
+                yield return new WaitForSeconds(waves[waveIndex].spawnRate);
+            }
+            // disable this once numOfEnemiesAlive becomes usable
+            waveIndex++; 
         }
     }
 
@@ -90,5 +96,18 @@ public class WaveManager : MonoBehaviour
     void SpawnEnemy(Enemy enemy)
     {
         Instantiate(enemy, spawnPoint.position, spawnPoint.rotation);
+
+        //enemy.transform.SetParent(spawnPoint.transform);
+    }
+
+    //public static void decreaseNumOfEnemiesAlive()
+    //{
+    //    numOfEnemiesAlive--;
+    //    Debug.Log("I ran");
+    //}
+
+    public int getWaveIndex()
+    {
+        return waveIndex;
     }
 }
