@@ -4,7 +4,11 @@
 TagManager:
   serializedVersion: 2
   tags:
-  - Enemy
+  - WoodenLeg
+  - WoodenBeam
+  - WoodenPlatform
+  - Floor
+  - enemy
   layers:
   - Default
   - TransparentFX
