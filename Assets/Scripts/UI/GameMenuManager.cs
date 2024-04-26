@@ -32,6 +32,7 @@ public class GameMenuManager : MonoBehaviour
 
     public void backToMenu()
     {
+        isPaused = false;
         SceneManager.LoadScene("StartScene");
     }
 }
