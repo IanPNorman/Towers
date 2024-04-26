@@ -46,6 +46,7 @@ public class WaveManager : MonoBehaviour
             //readyToCountdown = false;
              StartCoroutine(SpawnWave());
              countdown = timeBetweenNextWave;
+            return;
         }
         //if (numOfEnemiesAlive == 0)
         //{

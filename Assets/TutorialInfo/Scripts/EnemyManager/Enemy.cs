@@ -99,9 +99,10 @@ public class Enemy : MonoBehaviour
 
     public void MoveTowardsGoal()
     {
+        Quaternion rotation = Quaternion.LookRotation(target.transform.position - transform.position);
+        //transform.rotation = rotation;
         Vector3 direction = target.position - transform.position;
         transform.Translate(direction.normalized * (speed * Time.deltaTime));
-        Quaternion.LookRotation(target.transform.position - transform.position);
 
         if (Vector3.Distance(transform.position, target.position) <= 0.2f)
         {
