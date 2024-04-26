@@ -2,7 +2,7 @@ using UnityEngine;
 
 public class Projectile : MonoBehaviour
 {
-    public float speed = 8.5f;
+    public float speed = 15f;
     public float radius = 1f; 
     float radiusSq; 
     Transform target; 

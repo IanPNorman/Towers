@@ -9,6 +9,8 @@ TagManager:
   - WoodenBeam
   - WoodenPlatform
   - coin
+  - Left Hand
+  - Right Hand
   layers:
   - Default
   - TransparentFX

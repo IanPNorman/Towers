@@ -15,7 +15,7 @@ public class TestEnemy : MonoBehaviour
     void Update()
     {
         
-            _enemy.transform.Translate((Vector3.forward*2) * Time.deltaTime);
+            _enemy.transform.Translate((Vector3.forward*5) * Time.deltaTime);
         
     }
 }
