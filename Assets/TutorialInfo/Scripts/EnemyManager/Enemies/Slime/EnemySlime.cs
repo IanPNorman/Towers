@@ -16,8 +16,8 @@ public class EnemySlime : Enemy
         money = 100;
         target = Waypoint.points[0];
     }
-    private void Update()
-    {
-        MoveTowardsGoal();
-    }
+    //private void Update()
+    //{
+    //    MoveTowardsGoal();
+    //}
 }

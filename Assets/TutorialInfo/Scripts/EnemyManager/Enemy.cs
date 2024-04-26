@@ -37,6 +37,7 @@ public class Enemy : MonoBehaviour
     void Start()
     {
         target = Waypoint.points[0];
+        Quaternion quaternion = Quaternion.identity;
         //waveManager = GetComponentInParent<WaveManager>();
     }
 
@@ -100,10 +101,16 @@ public class Enemy : MonoBehaviour
     {
         Vector3 direction = target.position - transform.position;
         transform.Translate(direction.normalized * (speed * Time.deltaTime));
+        Quaternion.LookRotation(target.transform.position - transform.position);
 
         if (Vector3.Distance(transform.position, target.position) <= 0.2f)
         {
             GetNextWaypoint();
         }
     }
+
+    //public void SetRotation()
+    //{
+
+    //}
 }
