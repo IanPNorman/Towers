@@ -15,7 +15,6 @@ public class ArcherAttack : ArcherState
     [SerializeField] private GameObject ArrowShooter;
 
     [SerializeField] private GameObject Arrow;
-    [SerializeField] private Quaternion rotation;
 
     [SerializeField] private bool startedshooting = false;
 
@@ -96,7 +95,7 @@ public class ArcherAttack : ArcherState
     {
         while (true)
         {
-            Projectile.Spawn(Arrow, ArrowShooter.transform.position, rotation, currentTarget.transform);
+            Projectile.Spawn(Arrow, ArrowShooter.transform.position, Quaternion.LookRotation(currentTarget.transform.position - transform.position), currentTarget.transform);
             yield return new WaitForSeconds(4f);
         }
 

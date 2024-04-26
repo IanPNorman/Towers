@@ -9,7 +9,6 @@ public class Placer : MonoBehaviour
 
     private GameObject currentPlaceableObject;
 
-    private float mouseWheelRotation;
     private int currentPrefabIndex = -1;
 
     private void Update()
