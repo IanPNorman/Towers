@@ -33,6 +33,7 @@ public class ArcherAttack : ArcherState
     {
         if (cantSeeEnemy)
         {
+            startedshooting = false; 
             cantSeeEnemy = false;
             return ArcherIdle;
         }

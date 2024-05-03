@@ -11,7 +11,7 @@ public class HammerPlace : MonoBehaviour
 
     private GameObject currentPlaceableObject;
 
-    private void Update()
+    public void Update()
     {
 
         if (currentPlaceableObject != null)
@@ -29,7 +29,7 @@ public class HammerPlace : MonoBehaviour
 
     }
 
-    private void MoveBlueprintAround()
+    public void MoveBlueprintAround()
     {
         RaycastHit res;
         if (rayInteractor.TryGetCurrent3DRaycastHit(out res))

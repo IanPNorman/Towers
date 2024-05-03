@@ -13,7 +13,7 @@ public class HammerShow : MonoBehaviour
 
 
 
-    private void Update()
+    public void Update()
     {
 
             
@@ -35,9 +35,6 @@ public class HammerShow : MonoBehaviour
 
     private void ReleaseIfClicked()
     {
-        if (Input.GetMouseButtonDown(0))
-        {
-            currentPlaceableObject = null;
-        }
+        currentPlaceableObject = null;
     }
 }

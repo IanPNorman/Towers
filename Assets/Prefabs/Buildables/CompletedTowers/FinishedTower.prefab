@@ -74,7 +74,7 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 0.5, y: 0.5, z: 0.5}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 8409182151685716931}
@@ -163,7 +163,6 @@ MonoBehaviour:
   Enemy: {fileID: 0}
   ArrowShooter: {fileID: 7734431074561017784}
   Arrow: {fileID: 4658548395856767113, guid: 52f4dac26d4bbf845bb8d61c47e1e36a, type: 3}
-  rotation: {x: 0, y: 0, z: 0, w: 0}
   startedshooting: 0
 --- !u!65 &3058170708875322313
 BoxCollider:
