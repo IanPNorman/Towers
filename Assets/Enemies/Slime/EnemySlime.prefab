@@ -13,9 +13,10 @@ GameObject:
   - component: {fileID: 2663071912500140470}
   - component: {fileID: 3689772366358417569}
   - component: {fileID: 6249277639517233199}
+  - component: {fileID: -548709987616854390}
   m_Layer: 0
-  m_Name: Slime_1
-  m_TagString: Untagged
+  m_Name: EnemySlime
+  m_TagString: enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -134,3 +135,20 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 1.65, y: 1.2, z: 1.65}
   m_Center: {x: 0.00000011920929, y: 0.6115273, z: -0.052526623}
+--- !u!114 &-548709987616854390
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4608833590209001571}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bda8eb0a07a76974fbec68941f1c6182, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  speed: 0
+  rotationSpeed: 10
+  waypointsContainer: {fileID: 0}
+  endGoal: {fileID: 0}
+  waveManager: {fileID: 0}

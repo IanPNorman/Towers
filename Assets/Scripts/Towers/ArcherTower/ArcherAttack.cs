@@ -8,7 +8,7 @@ public class ArcherAttack : ArcherState
 {
     [SerializeField] private bool cantSeeEnemy;
     [SerializeField] private ArcherState ArcherIdle;
-    [SerializeField] private List<TestEnemy> targets = new List<TestEnemy>();
+    [SerializeField] private List<EnemyController> targets = new List<EnemyController>();
     [SerializeField] private GameObject currentTarget;
     [SerializeField] private GameObject Enemy;
 
@@ -39,7 +39,7 @@ public class ArcherAttack : ArcherState
         }
         else
         {
-            GetGurrentTarget();
+            GetCurrentTarget();
             if (currentTarget != null)
             {
                 if (startedshooting == false) {
@@ -62,7 +62,7 @@ public class ArcherAttack : ArcherState
     {
         if (collision.CompareTag("enemy"))
         {
-            TestEnemy newEnemy = collision.GetComponent<TestEnemy>();
+            EnemyController newEnemy = collision.GetComponent<EnemyController>();
             targets.Add(newEnemy);
         }
     }
@@ -72,7 +72,7 @@ public class ArcherAttack : ArcherState
     {   
         if (collision.CompareTag("enemy"))
         {
-            TestEnemy enemy = collision.GetComponent<TestEnemy>();
+            EnemyController enemy = collision.GetComponent<EnemyController>();
             if (targets.Contains(enemy))
             {
                 targets.Remove(enemy);  
@@ -80,8 +80,9 @@ public class ArcherAttack : ArcherState
         }
     }
 
-    void GetGurrentTarget()
+    void GetCurrentTarget()
     {
+        targets.RemoveAll(item => item == null || item.gameObject == null);
         if (targets.Count <= 0)
         {
             currentTarget = null;
@@ -96,8 +97,12 @@ public class ArcherAttack : ArcherState
     {
         while (true)
         {
+            if (currentTarget == null)
+            {
+                yield break;
+            }
             Projectile.Spawn(Arrow, ArrowShooter.transform.position, Quaternion.LookRotation(currentTarget.transform.position - transform.position), currentTarget.transform);
-            yield return new WaitForSeconds(4f);
+            yield return new WaitForSeconds(2f);
         }
 
     }
