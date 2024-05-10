@@ -5,10 +5,9 @@ using UnityEngine.SceneManagement;
 
 public class MainMenu : MonoBehaviour
 {
-    public string levelName = "UITestScene"; // name of scene to load
     public void PlayGame()
     {
-        SceneManager.LoadScene(levelName);
+        SceneManager.LoadScene("UITestScene");
     }
 
     public void QuitGame()
