@@ -7,6 +7,9 @@ public class GameMenuManager : MonoBehaviour
 {
     public static bool isPaused = false;
     public GameObject menu;
+    public GameObject menuParent;
+    public float distanceInFront = 2.0f;
+    public float heightOffset = 0;
     void Update()
     {
         if(Input.GetKeyDown(KeyCode.Escape))
@@ -18,8 +21,7 @@ public class GameMenuManager : MonoBehaviour
             }
             else
             {
-                menu.SetActive(true);
-                isPaused = true;
+                SpawnMenu();
             }
         }
     }
@@ -34,5 +36,19 @@ public class GameMenuManager : MonoBehaviour
     {
         isPaused = false;
         SceneManager.LoadScene("StartScene");
+    }
+
+    public void SpawnMenu()
+    {
+        Camera playerCamera = Camera.main;
+
+        Vector3 spawnPosition = playerCamera.transform.position + playerCamera.transform.forward * distanceInFront;
+        spawnPosition.y += heightOffset;
+        Quaternion spawnRotation = Quaternion.LookRotation(playerCamera.transform.forward);
+
+        menu.SetActive(true);
+        menuParent.transform.position = spawnPosition;
+        menuParent.transform.rotation = spawnRotation;
+        isPaused = true;
     }
 }
