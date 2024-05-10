@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.17432646, g: 0.21801475, b: 0.30023766, a: 1}
+  m_IndirectSpecularColor: {r: 0.17432597, g: 0.21801412, b: 0.30023658, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -2682,6 +2682,7 @@ GameObject:
   - component: {fileID: 1246025389}
   - component: {fileID: 1246025388}
   - component: {fileID: 1246025392}
+  - component: {fileID: 1246025393}
   m_Layer: 5
   m_Name: MenuCanvas
   m_TagString: Untagged
@@ -2786,6 +2787,26 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e2ac94f0550b740deb9f4dbe9e6f8dd7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  levelName: UITestScene
+--- !u!114 &1246025393
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1246025387}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7951c64acb0fa62458bf30a60089fe2d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_IgnoreReversedGraphics: 0
+  m_CheckFor2DOcclusion: 0
+  m_CheckFor3DOcclusion: 0
+  m_BlockingMask:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_RaycastTriggerInteraction: 1
 --- !u!1 &1258839539
 GameObject:
   m_ObjectHideFlags: 0
