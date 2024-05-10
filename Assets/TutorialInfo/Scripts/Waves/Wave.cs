@@ -5,6 +5,8 @@ using UnityEngine;
 [System.Serializable]
 public class Wave
 {
-    public Enemy[] enemies;
+    public int count;
     public float spawnRate;
+    public GameObject enemyPrefab;
+
 }

@@ -9,6 +9,10 @@ TagManager:
   - WoodenPlatform
   - Floor
   - enemy
+  - Enemy
+  - Left Hand
+  - Right Hand
+  - coin
   layers:
   - Default
   - TransparentFX
@@ -40,7 +44,7 @@ TagManager:
   - 
   - 
   - 
-  - 
+  - XR Simulation
   - 
   m_SortingLayers:
   - name: Default

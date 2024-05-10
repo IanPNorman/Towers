@@ -2,10 +2,11 @@ using UnityEngine;
 
 public class Projectile : MonoBehaviour
 {
-    public float speed = 15f;
-    public float radius = 1f; 
+    private float speed = 30f;
+    private float radius = 1f; 
     float radiusSq; 
     Transform target; 
+
 
     void OnEnable()
     {
@@ -25,6 +26,9 @@ public class Projectile : MonoBehaviour
 
         if (direction.sqrMagnitude < radiusSq)
         {
+            EnemyController enemy = target.GetComponent<EnemyController>();
+
+            enemy.doDamage();
             Destroy(gameObject);
         }
     }
