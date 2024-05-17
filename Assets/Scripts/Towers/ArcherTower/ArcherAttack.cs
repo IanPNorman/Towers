@@ -102,6 +102,7 @@ public class ArcherAttack : ArcherState
                 yield break;
             }
             Projectile.Spawn(Arrow, ArrowShooter.transform.position, Quaternion.LookRotation(currentTarget.transform.position - transform.position), currentTarget.transform);
+            AudioManager.Instance.PlaySFX("Building_Fire");
             yield return new WaitForSeconds(2f);
         }
 

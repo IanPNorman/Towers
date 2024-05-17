@@ -82,6 +82,7 @@ public class EnemyController : MonoBehaviour
     public void killEnemy()
     {
         waveManager.OnEnemyDeath();
+        AudioManager.Instance.PlaySFX("Slime_Death");
         Destroy(gameObject);
     }
 

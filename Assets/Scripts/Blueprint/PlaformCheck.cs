@@ -22,6 +22,7 @@ public class PlaformBlueprint : MonoBehaviour
             GetComponent<Renderer>().material = NewMaterial;
             Object.Destroy(collision.gameObject);
             blueprintController.IncreaseCounter(1);
+            AudioManager.Instance.PlaySFX("Building_Place");
         }
     }
 }

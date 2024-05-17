@@ -23,6 +23,7 @@ public class LegCheck : MonoBehaviour
             GetComponent<Collider>().isTrigger = false;
             Object.Destroy(collision.gameObject);
             blueprintController.IncreaseCounter(1);
+            AudioManager.Instance.PlaySFX("Building_Place");
         }
     }
 }

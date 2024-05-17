@@ -13,6 +13,7 @@ public class BlueprintController : MonoBehaviour
         if(Counter.Count >= 9)
         {
             Instantiate(FinishedTower, new Vector3(this.transform.position.x, this.transform.position.y, this.transform.position.z), Quaternion.identity);
+            AudioManager.Instance.PlaySFX("Building_Place");
             Object.Destroy(Blueprint);
         }
     }

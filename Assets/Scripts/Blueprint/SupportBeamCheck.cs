@@ -22,6 +22,7 @@ public class SupportBeamCheck : MonoBehaviour
             GetComponent<Renderer>().material = NewMaterial;
             blueprintController.IncreaseCounter(1);
             Object.Destroy(collision.gameObject);
+            AudioManager.Instance.PlaySFX("Building_Place");
         }
     }
 }
