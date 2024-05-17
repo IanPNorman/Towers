@@ -15,10 +15,13 @@ public class OptionsMenu : MonoBehaviour
     public void SetSFXVolume (float sfxVolume)
     {
         audioMixer.SetFloat("sfxVolume", sfxVolume);
+//        AudioManager.Instance.SFXVolume(sfxVolume);
     }
 
     public void SetMusicVolume (float musicVolume)
     {
         audioMixer.SetFloat("musicVolume", musicVolume);
+//        AudioManager.Instance.MusicVolume(musicVolume);
     }
 }
+
